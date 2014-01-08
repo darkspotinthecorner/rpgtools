@@ -1,0 +1,93 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="css/shadowrun.css" />
+	<script type="text/javascript" src="../js/angular.1.2.7.min.js"></script>
+	<script type="text/javascript" src="js/shadowrun5th.js"></script>
+</head>
+<body ng-controller="Shadowrun5thSheetController">
+	<div id="meta">
+		<select ng-model="settings.language" ng-options="lang for lang in repository.languages_available"></select>
+	</div>
+	<div id="generic">
+		<div class="character">{{i18n('Character')}} <input type="text" ng-model="character.name" /></div>
+		<div class="player">{{i18n('Player')}} <input type="text" ng-model="character.player" /></div>
+		<div class="notes">{{i18n('Notes')}} <input type="text" ng-model="character.notes" /></div>
+	</div>
+	<div id="personal">
+		<h1>{{i18n('Personal Data')}}</h1>
+		{{i18n('Name')}} <input type="text" ng-model="character.name" />
+		{{i18n('Primary Alias')}} <input type="text" ng-model="character.primary_alias" />
+		{{i18n('Metatype')}} <select ng-model="character.metatype" ng-options="metatype for metatype in repository.metatypes_available"></select>
+			{{i18n('Ethnicity')}}
+		{{i18n('Age')}}
+		{{i18n('Sex')}}
+		{{i18n('Height')}}
+		{{i18n('Weight')}}
+		{{i18n('Streed Cred')}}
+		{{i18n('Notoriety')}}
+		{{i18n('Public Awareness')}}
+		{{i18n('Karma')}}
+			{{i18n('Total Karma')}}
+		{{i18n('Misc')}}
+	</div>
+	<div id="combat-core">
+		Primary Armor
+			Rating
+
+		Primary Ranged Weapon
+			Damage
+			Accuracy
+			AP
+			Mode
+			RC
+			Ammo
+
+		Primary Melee Weapon
+			Reach
+			Damage
+			Accuracy
+			AP
+	</div>
+	<div id="attributes">
+		Body
+		Agility
+		Reaction
+		Strength
+
+		Willpower
+		Logic
+		Intuition
+		Charisma
+
+		Edge
+		Edge Points
+
+		Essence
+		Magic / Resonance
+
+		Initiative
+			Matrix Initiative
+			Astral Initiative
+
+		Composure
+		Judge Intentions
+		Memory
+
+		Lift / Carry
+		Movement
+
+		Physical Limit
+		Mental Limit
+		Social Limit
+	</div>
+	<div id="skills">
+		Skillname
+			Rating
+			Type
+	</div>
+</body>
+</html>
