@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="Shadowrun5thSheet">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,16 +23,16 @@
 		<div class="primary-alias">{{i18n.t('Primary Alias')}} <input type="text" ng-model="character.primary_alias" /></div>
 		<div class="metatype">{{i18n.t('Metatype')}} <select ng-model="character.metatype" ng-options="mtype_key as i18n.t(mtype_val.label) for (mtype_key, mtype_val) in repository.metatypes"></select></div>
 		<div class="ethnicity">{{i18n.t('Ethnicity')}} <input type="text" ng-model="character.ethnicity" /></div>
-		<div class="age">{{i18n.t('Age')}} <input type="number" ng-model="character.age" min="0" /> <select ng-model="character.age_unit" ng-options="age_unit_key as i18n.t('_unit_timespan_'+age_unit_key) for (age_unit_key, age_unit_val) in repository.units.timespan"></select></div>
+		<div class="age">{{i18n.t('Age')}} <input type="number" ng-model="character.age" min="0" /> <select ng-model="character.age_unit" ng-options="age_unit.id as i18n.t('_unit_timespan_'+age_unit.id) for age_unit in repository.units.timespan"></select></div>
 		<div class="gender">{{i18n.t('Gender')}} <select ng-model="character.gender" ng-options="gender_key as i18n.t(gender_val) for (gender_key, gender_val) in repository.genders"></select></div>
-		<div class="height">{{i18n.t('Height')}} <input type="number" ng-model="character.height" min="0" /> <select ng-model="character.height_unit" ng-options="height_unit_key as i18n.t('_unit_length_'+height_unit_key) for (height_unit_key, height_unit_val) in repository.units.length"></select></div>
-		<div class="weight">{{i18n.t('Weight')}} <input type="number" ng-model="character.weight" min="0" /> <select ng-model="character.weight_unit" ng-options="weight_unit_key as i18n.t('_unit_weight_'+weight_unit_key) for (weight_unit_key, weight_unit_val) in repository.units.weight"></select></div>
-		<div class="streed-cred">{{i18n.t('Streed Cred')}}</div>
-		<div class="notoriety">{{i18n.t('Notoriety')}}</div>
-		<div class="public-awareness">{{i18n.t('Public Awareness')}}</div>
-		<div class="karma">{{i18n.t('Karma')}}</div>
-		<div class="total-karma">{{i18n.t('Total Karma')}}</div>
+		<div class="height">{{i18n.t('Height')}} <input type="number" ng-model="character.height" min="0" /> <select ng-model="character.height_unit" ng-options="height_unit.id as i18n.t('_unit_length_'+height_unit.id) for height_unit in repository.units.length"></select></div>
+		<div class="weight">{{i18n.t('Weight')}} <input type="number" ng-model="character.weight" min="0" /> <select ng-model="character.weight_unit" ng-options="weight_unit.id as i18n.t('_unit_weight_'+weight_unit.id) for weight_unit in repository.units.weight"></select></div>
+		<div class="streed-cred">{{i18n.t('Streed Cred')}} <input type="number" ng-model="character.street_cred" min="0" /></div>
+		<div class="notoriety">{{i18n.t('Notoriety')}} <input type="number" ng-model="character.notoriety" min="0" /></div>
+		<div class="public-awareness">{{i18n.t('Public Awareness')}} <input type="number" ng-model="character.public_awareness" min="0" /></div>
+		<div class="karma">{{i18n.t('Karma')}} <input type="number" ng-model="character.karma" min="0" max="{{character.total_karma}}" /> / <input type="number" ng-model="character.total_karma" min="0" /></div>
 		<div class="misc">{{i18n.t('Misc')}}</div>
+		<pre>{{character}}</pre>
 	</div>
 	<div id="combat-core">
 		Primary Armor

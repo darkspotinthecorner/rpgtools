@@ -1,14 +1,20 @@
+angular.module('Shadowrun5thSheet', []);
+
 function Shadowrun5thSheetController($scope)
 {
 	$scope.character = {
-		'metatype'   : 'human',
-		'gender'     : 'female',
-		'age'        : 0,
-		'age_unit'   : 'years',
-		'height'     : 0,
-		'height_unit': 'meters',
-		'weight'     : 0,
-		'weight_unit': 'kilogramms'
+		'metatype'        : 'human',
+		'gender'          : 'female',
+		'age'             : 0,
+		'age_unit'        : 'years',
+		'height'          : 0,
+		'height_unit'     : 'meters',
+		'weight'          : 0,
+		'weight_unit'     : 'kilogramms',
+		'street_cred'     : 0,
+		'notoriety'       : 0,
+		'karma'           : 0,
+		'total_karma'     : 0,
 	};
 
 	$scope.settings = {
@@ -17,32 +23,32 @@ function Shadowrun5thSheetController($scope)
 
 	$scope.repository = {
 		'units': {
-			'timespan': {
-				'seconds': 1,
-				'minutes': 60,
-				'hours'  : 3600,
-				'days'   : 86400,
-				'months' : 2629800,
-				'years'  : 31557600
-			},
-			'length': {
-				'milimeters' : 1,
-				'centimeters': 10,
-				'inches'     : 25.4,
-				'feet'       : 304.8,
-				'yards'      : 914.4,
-				'meters'     : 1000,
-				'kilometers' : 1000000,
-				'miles'      : 1609344
-			},
-			'weight': {
-				'miligramms': 1,
-				'gramms'    : 1000,
-				'ounces'    : 28349.5,
-				'pounds'    : 453592,
-				'kilogramms': 1000000,
-				'tons'      : 1000000000
-			}
+			'timespan': [
+				{'id': 'seconds', 'factor': 1},
+				{'id': 'minutes', 'factor': 60},
+				{'id': 'hours',   'factor': 3600},
+				{'id': 'days',    'factor': 86400},
+				{'id': 'months',  'factor': 2629800},
+				{'id': 'years',   'factor': 31557600}
+			],
+			'length': [
+				{'id': 'milimeters',  'factor': 1},
+				{'id': 'centimeters', 'factor': 10},
+				{'id': 'inches',      'factor': 25.4},
+				{'id': 'feet',        'factor': 304.8},
+				{'id': 'yards',       'factor': 914.4},
+				{'id': 'meters',      'factor': 1000},
+				{'id': 'kilometers',  'factor': 1000000},
+				{'id': 'miles',       'factor': 1609344}
+			],
+			'weight': [
+				{'id': 'miligramms', 'factor' : 1},
+				{'id': 'gramms',     'factor' : 1000},
+				{'id': 'ounces',     'factor' : 28349.5},
+				{'id': 'pounds',     'factor' : 453592},
+				{'id': 'kilogramms', 'factor' : 1000000},
+				{'id': 'tons',       'factor' : 1000000000}
+			]
 		},
 		'languages': {
 			'en-US': {
