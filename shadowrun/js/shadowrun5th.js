@@ -5,7 +5,7 @@ function Shadowrun5thSheetController($scope)
 	$scope.character = {
 		'metatype'        : 'human',
 		'gender'          : 'female',
-		'age'             : 0,
+		'age'             : 1,
 		'age_unit'        : 'years',
 		'height'          : 0,
 		'height_unit'     : 'meters',
@@ -231,19 +231,25 @@ function Shadowrun5thSheetController($scope)
 			}
 			return '[***['+uselang+']***]';
 		},
-		getUnitHeight: function() {
-			return 'x';
+		getUnitFactor: function(unittype, unitkey) {
+			for (var i = $scope.repository.units[unittype].length - 1; i >= 0; i--) {
+				if ($scope.repository.units[unittype][i]['id'] == unitkey)
+				{
+					return $scope.repository.units[unittype][i]['factor'];
+				}
+			};
+			return 1;
 		}
 	}
 
 	$scope.$watch('character.age_unit', function(newValue, oldValue) {
-		$scope.character.age = ($scope.character.age * $scope.repository.units.timespan[oldValue]) / $scope.repository.units.timespan[newValue];
+		$scope.character.age = ($scope.character.age * $scope.i18n.getUnitFactor('timespan', oldValue)) / $scope.i18n.getUnitFactor('timespan', newValue);
 	});
 	$scope.$watch('character.height_unit', function(newValue, oldValue) {
-		$scope.character.height = ($scope.character.height * $scope.repository.units.length[oldValue]) / $scope.repository.units.length[newValue];
+		$scope.character.height = ($scope.character.height * $scope.i18n.getUnitFactor('length', oldValue)) / $scope.i18n.getUnitFactor('length', newValue);
 	});
 	$scope.$watch('character.weight_unit', function(newValue, oldValue) {
-		$scope.character.weight = ($scope.character.weight * $scope.repository.units.weight[oldValue]) / $scope.repository.units.weight[newValue];
+		$scope.character.weight = ($scope.character.weight * $scope.i18n.getUnitFactor('weight', oldValue)) / $scope.i18n.getUnitFactor('weight', newValue);
 	});
 }
 
