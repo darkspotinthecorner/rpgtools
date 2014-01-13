@@ -111,13 +111,38 @@ function Shadowrun5thSheetController($scope)
 				'Karma'                        : 'Karma',
 				'Total Karma'                  : 'Total Karma',
 				'Misc'                         : 'Misc',
-				'Male'                         : 'Male',
-				'Female'                       : 'Female',
-				'Human'                        : 'Human',
-				'Elf'                          : 'Elf',
-				'Dwarf'                        : 'Dwarf',
-				'Orc'                          : 'Orc',
-				'Troll'                        : 'Troll'
+				'Gender.Male'                  : 'Male',
+				'Gender.Female'                : 'Female',
+				'Metatype.Human'               : 'Human',
+				'Metatype.Elf'                 : 'Elf',
+				'Metatype.Dwarf'               : 'Dwarf',
+				'Metatype.Orc'                 : 'Orc',
+				'Metatype.Troll'               : 'Troll',
+				'Attribute.Body'               : 'Body',
+				'Attribute.Agility'            : 'Agility',
+				'Attribute.Reaction'           : 'Reaction',
+				'Attribute.Strength'           : 'Strength',
+				'Attribute.Willpower'          : 'Willpower',
+				'Attribute.Logic'              : 'Logic',
+				'Attribute.Intuition'          : 'Intuition',
+				'Attribute.Charisma'           : 'Charisma',
+				'Attribute.Edge'               : 'Edge',
+				'Attribute.Edge Points'        : 'Edge Points',
+				'Attribute.Essence'            : 'Essence',
+				'Attribute.Magic'              : 'Magic',
+				'Attribute.Resonance'          : 'Resonance',
+				'Attribute.Initiative'         : 'Initiative',
+				'Attribute.Matrix Initiative'  : 'Matrix Initiative',
+				'Attribute.Astral Initiative'  : 'Astral Initiative',
+				'Attribute.Composure'          : 'Composure',
+				'Attribute.Judge Intentions'   : 'Judge Intentions',
+				'Attribute.Memory'             : 'Memory',
+				'Attribute.Lift'               : 'Lift',
+				'Attribute.Carry'              : 'Carry',
+				'Attribute.Movement'           : 'Movement',
+				'Attribute.Physical Limit'     : 'Physical Limit',
+				'Attribute.Mental Limit'       : 'Mental Limit',
+				'Attribute.Social Limit'       : 'Social Limit'
 			},
 			'de-DE': {
 				'_label'                       : 'Deutsch',
@@ -175,44 +200,144 @@ function Shadowrun5thSheetController($scope)
 				'Weight'                       : 'Gewicht',
 				'Streed Cred'                  : 'Straßenruf',
 				'Notoriety'                    : 'Schlechter Ruf',
-				'Public Awareness'             : 'Bekanntheit',
+				'Public Awareness'             : 'Prominenz',
 				'Karma'                        : 'Karma',
 				'Total Karma'                  : 'Gesamtes Karma',
-				'Misc'                         : 'Verschiedenes',
-				'Male'                         : 'Männlich',
-				'Female'                       : 'Weiblich',
-				'Human'                        : 'Mensch',
-				'Elf'                          : 'Elf',
-				'Dwarf'                        : 'Zwerg',
-				'Orc'                          : 'Ork',
-				'Troll'                        : 'Troll'
+				'Misc'                         : 'Sonstiges',
+				'Gender.Male'                  : 'Männlich',
+				'Gender.Female'                : 'Weiblich',
+				'Metatype.Human'               : 'Mensch',
+				'Metatype.Elf'                 : 'Elf',
+				'Metatype.Dwarf'               : 'Zwerg',
+				'Metatype.Orc'                 : 'Ork',
+				'Metatype.Troll'               : 'Troll',
+				'Attribute.Body'               : 'Konstitution',
+				'Attribute.Agility'            : 'Geschicklichkeit',
+				'Attribute.Reaction'           : 'Reaktion',
+				'Attribute.Strength'           : 'Stärke',
+				'Attribute.Willpower'          : 'Willenskraft',
+				'Attribute.Logic'              : 'Logik',
+				'Attribute.Intuition'          : 'Intuition',
+				'Attribute.Charisma'           : 'Charisma',
+				'Attribute.Edge'               : 'Edge',
+				'Attribute.Edge Points'        : 'Edgepunkte',
+				'Attribute.Essence'            : 'Essenz',
+				'Attribute.Magic'              : 'Magie',
+				'Attribute.Resonance'          : 'Resonanz',
+				'Attribute.Initiative'         : 'Initiative',
+				'Attribute.Matrix Initiative'  : 'Matrix-Initiative',
+				'Attribute.Astral Initiative'  : 'Astrale Initiative',
+				'Attribute.Composure'          : 'Selbstbeherrschung',
+				'Attribute.Judge Intentions'   : 'Menschenkenntnis',
+				'Attribute.Memory'             : 'Erinnerungsvermögen',
+				'Attribute.Lift'               : 'Heben',
+				'Attribute.Carry'              : 'Tragen',
+				'Attribute.Movement'           : 'Bewegung',
+				'Attribute.Physical Limit'     : 'Körperliches Limit',
+				'Attribute.Mental Limit'       : 'Geistiges Limit',
+				'Attribute.Social Limit'       : 'Soziales Limit'
 			}
 		},
 		'metatypes': {
 			'human': {
-				'label'     : 'Human',
-				'attributes': 'narf'
+				'label'     : 'Metatype.Human',
+				'attributes': {
+					'body'     : {'base': 1, 'max': 6},
+					'agility'  : {'base': 1, 'max': 6},
+					'reaction' : {'base': 1, 'max': 6},
+					'strength' : {'base': 1, 'max': 6},
+					'willpower': {'base': 1, 'max': 6},
+					'logic'    : {'base': 1, 'max': 6},
+					'intuition': {'base': 1, 'max': 6},
+					'charisma' : {'base': 1, 'max': 6},
+					'edge'     : {'base': 2, 'max': 7},
+					'essence'  : {'base': 6, 'max': 6}
+				}
 			},
 			'elf'  : {
-				'label'     : 'Elf',
-				'attributes': 'narf'
+				'label'     : 'Metatype.Elf',
+				'attributes': {
+					'body'     : {'base': 1, 'max': 6},
+					'agility'  : {'base': 2, 'max': 7},
+					'reaction' : {'base': 1, 'max': 6},
+					'strength' : {'base': 1, 'max': 6},
+					'willpower': {'base': 1, 'max': 6},
+					'logic'    : {'base': 1, 'max': 6},
+					'intuition': {'base': 1, 'max': 6},
+					'charisma' : {'base': 3, 'max': 8},
+					'edge'     : {'base': 1, 'max': 6},
+					'essence'  : {'base': 6, 'max': 6}
+				},
+				'features': {
+					'vision': [
+						'night'
+					]
+				}
 			},
 			'dwarf': {
-				'label'     : 'Dwarf',
-				'attributes': 'narf'
+				'label'     : 'Metatype.Dwarf',
+				'attributes': {
+					'body'     : {'base': 3, 'max': 8},
+					'agility'  : {'base': 1, 'max': 6},
+					'reaction' : {'base': 1, 'max': 5},
+					'strength' : {'base': 3, 'max': 8},
+					'willpower': {'base': 2, 'max': 7},
+					'logic'    : {'base': 1, 'max': 6},
+					'intuition': {'base': 1, 'max': 6},
+					'charisma' : {'base': 1, 'max': 6},
+					'edge'     : {'base': 1, 'max': 6},
+					'essence'  : {'base': 6, 'max': 6}
+				},
+				'features': {
+					'vision': [
+						'infrared'
+					]
+				}
 			},
 			'orc'  : {
-				'label'     : 'Orc',
-				'attributes': 'narf'
+				'label'     : 'Metatype.Orc',
+				'attributes': {
+					'body'     : {'base': 4, 'max': 9},
+					'agility'  : {'base': 1, 'max': 6},
+					'reaction' : {'base': 1, 'max': 6},
+					'strength' : {'base': 3, 'max': 8},
+					'willpower': {'base': 1, 'max': 6},
+					'logic'    : {'base': 1, 'max': 5},
+					'intuition': {'base': 1, 'max': 6},
+					'charisma' : {'base': 1, 'max': 5},
+					'edge'     : {'base': 1, 'max': 6},
+					'essence'  : {'base': 6, 'max': 6}
+				},
+				'features': {
+					'vision': [
+						'night'
+					]
+				}
 			},
 			'troll': {
-				'label'     : 'Troll',
-				'attributes': 'narf'
+				'label'     : 'Metatype.Troll',
+				'attributes': {
+					'body'     : {'base': 5, 'max': 10},
+					'agility'  : {'base': 1, 'max': 5},
+					'reaction' : {'base': 1, 'max': 6},
+					'strength' : {'base': 5, 'max': 10},
+					'willpower': {'base': 1, 'max': 6},
+					'logic'    : {'base': 1, 'max': 5},
+					'intuition': {'base': 1, 'max': 5},
+					'charisma' : {'base': 1, 'max': 4},
+					'edge'     : {'base': 1, 'max': 6},
+					'essence'  : {'base': 6, 'max': 6}
+				},
+				'features': {
+					'vision': [
+						'infrared'
+					]
+				}
 			}
 		},
 		'genders': {
-			'male'  : 'Male',
-			'female': 'Female'
+			'male'  : 'Gender.Male',
+			'female': 'Gender.Female'
 		}
 	};
 

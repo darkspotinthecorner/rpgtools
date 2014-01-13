@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" ng-app="Shadowrun5thSheet" > <![endif]-->
+<html class="no-js" lang="en" ng-app="Shadowrun5thSheet" >
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shadowrun 5th Sheet</title>
+
+	<!-- If you are using CSS version, only link these 2 files, you may add app.css to use for your overrides if you like. -->
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/foundation.css">
+
+	<!-- If you are using the gem version, you need this only -->
+	<link rel="stylesheet" href="css/shadowrun.css">
+
+	<script src="js/vendor/modernizr.js"></script>
+
+</head>
+<body ng-controller="Shadowrun5thSheetController">
+
+	<div id="meta" class="row">
+		<div class="small-6 medium-4 large-3 columns">
+			<select ng-model="settings.language" ng-options="lang_key as lang_val._label for (lang_key, lang_val) in repository.languages"></select>
+		</div>
+	</div>
+	<div id="generic" class="row">
+		<div class="medium-6 large-4 columns character"><label>{{i18n.t('Character')}}</label><input type="text" ng-model="character.name" /></div>
+		<div class="medium-6 large-4 columns player"><label>{{i18n.t('Player')}}</label><input type="text" ng-model="character.player" /></div>
+		<div class="medium-12 large-4 columns notes"><label>{{i18n.t('Notes')}}</label><input type="text" ng-model="character.notes" /></div>
+	</div>
+	<div id="personal">
+		<div class="row">
+			<h3>{{i18n.t('Personal Data')}}</h3>
+		</div>
+		<div class="row">
+			<div class="large-3 columns name"><label>{{i18n.t('Name')}}</label><input type="text" ng-model="character.name" /></div>
+			<div class="large-3 columns primary-alias"><label>{{i18n.t('Primary Alias')}}</label><input type="text" ng-model="character.primary_alias" /></div>
+			<div class="large-2 columns metatype"><label>{{i18n.t('Metatype')}}</label><select ng-model="character.metatype" ng-options="mtype_key as i18n.t(mtype_val.label) for (mtype_key, mtype_val) in repository.metatypes"></select></div>
+			<div class="large-2 columns ethnicity"><label>{{i18n.t('Ethnicity')}}</label><input type="text" ng-model="character.ethnicity" /></div>
+			<div class="large-2 columns gender"><label>{{i18n.t('Gender')}}</label><select ng-model="character.gender" ng-options="gender_key as i18n.t(gender_val) for (gender_key, gender_val) in repository.genders"></select></div>
+		</div>
+		<div class="row">
+			<div class="large-2 columns age"><label>{{i18n.t('Age')}}</label><input type="number" ng-model="character.age" min="0" /></div>
+			<div class="large-2 columns age-unit"><label>&nbsp;</label><select ng-model="character.age_unit" ng-options="age_unit.id as i18n.t('_unit_timespan_'+age_unit.id) for age_unit in repository.units.timespan"></select></div>
+			<div class="large-2 columns height"><label>{{i18n.t('Height')}}</label><input type="number" ng-model="character.height" min="0" /></div>
+			<div class="large-2 columns height-unit"><label>&nbsp;</label><select ng-model="character.height_unit" ng-options="height_unit.id as i18n.t('_unit_length_'+height_unit.id) for height_unit in repository.units.length"></select></div>
+			<div class="large-2 columns weight"><label>{{i18n.t('Weight')}}</label><input type="number" ng-model="character.weight" min="0" /></div>
+			<div class="large-2 columns weight-unit"><label>&nbsp;</label><select ng-model="character.weight_unit" ng-options="weight_unit.id as i18n.t('_unit_weight_'+weight_unit.id) for weight_unit in repository.units.weight"></select></div>
+		</div>
+		<div class="row">
+			<div class="large-2 columns streed-cred"><label>{{i18n.t('Streed Cred')}}</label><input type="number" ng-model="character.street_cred" min="0" /></div>
+			<div class="large-2 columns notoriety"><label>{{i18n.t('Notoriety')}}</label><input type="number" ng-model="character.notoriety" min="0" /></div>
+			<div class="large-2 columns public-awareness"><label>{{i18n.t('Public Awareness')}}</label><input type="number" ng-model="character.public_awareness" min="0" /></div>
+			<div class="large-3 columns karma"><label>{{i18n.t('Karma')}}</label><input type="number" ng-model="character.karma" min="0" max="{{character.total_karma}}" /></div>
+			<div class="large-3 columns karma-total"><label>&nbsp;</label><input type="number" ng-model="character.total_karma" min="0" /></div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns misc"><label>{{i18n.t('Misc')}}</label><textarea ng-model="character.misc"></textarea></div>
+		</div>
+		<!-- <pre>{{character}}</pre> -->
+	</div>
+
+
+	<script src="../js/angular.1.2.7.min.js"></script>
+	<script src="../js/jquery.2.0.3.min.js"></script>
+	<script src="../js/foundation.min.js"></script>
+	<script>
+		$(document).foundation();
+	</script>
+	<script src="js/shadowrun5th.js"></script>
+</body>
+</html>

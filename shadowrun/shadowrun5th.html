@@ -31,58 +31,42 @@
 		<div class="notoriety">{{i18n.t('Notoriety')}} <input type="number" ng-model="character.notoriety" min="0" /></div>
 		<div class="public-awareness">{{i18n.t('Public Awareness')}} <input type="number" ng-model="character.public_awareness" min="0" /></div>
 		<div class="karma">{{i18n.t('Karma')}} <input type="number" ng-model="character.karma" min="0" max="{{character.total_karma}}" /> / <input type="number" ng-model="character.total_karma" min="0" /></div>
-		<div class="misc">{{i18n.t('Misc')}}</div>
+		<div class="misc">{{i18n.t('Misc')}} <textarea ng-model="character.misc"></textarea></div>
 		<pre>{{character}}</pre>
 	</div>
-	<div id="combat-core">
-		Primary Armor
-			Rating
-
-		Primary Ranged Weapon
-			Damage
-			Accuracy
-			AP
-			Mode
-			RC
-			Ammo
-
-		Primary Melee Weapon
-			Reach
-			Damage
-			Accuracy
-			AP
-	</div>
 	<div id="attributes">
-		Body
-		Agility
-		Reaction
-		Strength
+		<div class="body">{{i18n.t('Attribute.Body')}} <input type="number" ng-model="character.body" /></div>
+		<div class="agility">{{i18n.t('Attribute.Agility')}} <input type="number" ng-model="character.agility" /></div>
+		<div class="reaction">{{i18n.t('Attribute.Reaction')}} <input type="number" ng-model="character.reaction" /></div>
+		<div class="strength">{{i18n.t('Attribute.Strength')}} <input type="number" ng-model="character.strength" /></div>
 
-		Willpower
-		Logic
-		Intuition
-		Charisma
+		<div class="willpower">{{i18n.t('Attribute.Willpower')}} <input type="number" ng-model="character.willpower" /></div>
+		<div class="logic">{{i18n.t('Attribute.Logic')}} <input type="number" ng-model="character.logic" /></div>
+		<div class="intuition">{{i18n.t('Attribute.Intuition')}} <input type="number" ng-model="character.intuition" /></div>
+		<div class="charisma">{{i18n.t('Attribute.Charisma')}} <input type="number" ng-model="character.charisma" /></div>
 
-		Edge
-		Edge Points
+		<div class="edge">{{i18n.t('Attribute.Edge')}} <input type="number" ng-model="character.edge" /></div>
+		<div class="edge-points">{{i18n.t('Attribute.Edge Points')}} <input type="number" ng-model="character.edge_points" /></div>
 
-		Essence
-		Magic / Resonance
+		<div class="essence">{{i18n.t('Attribute.Essence')}} <input type="number" ng-model="character.essence" /></div>
+		<div class="magic">{{i18n.t('Attribute.Magic')}} <input type="number" ng-model="character.magic" /></div>
+		<div class="resonance">{{i18n.t('Attribute.Resonance')}} <input type="number" ng-model="character.resonance" /></div>
 
-		Initiative
-			Matrix Initiative
-			Astral Initiative
+		<div class="initiative">{{i18n.t('Attribute.Initiative')}} <input type="number" ng-model="character.initiative" /></div>
+		<div class="matrix-initiative">{{i18n.t('Attribute.Matrix Initiative')}} <input type="number" ng-model="character.matrix_initiative" /></div>
+		<div class="astral-initiative">{{i18n.t('Attribute.Astral Initiative')}} <input type="number" ng-model="character.astral_initiative" /></div>
 
-		Composure
-		Judge Intentions
-		Memory
+		<div class="composure">{{i18n.t('Attribute.Composure')}} <input type="number" ng-model="character.composure" /></div>
+		<div class="judge-intentions">{{i18n.t('Attribute.Judge Intentions')}} <input type="number" ng-model="character.judge_intentions" /></div>
+		<div class="memory">{{i18n.t('Attribute.Memory')}} <input type="number" ng-model="character.memory" /></div>
 
-		Lift / Carry
-		Movement
+		<div class="lift">{{i18n.t('Attribute.Lift')}} <input type="number" ng-model="character.lift" /></div>
+		<div class="carry">{{i18n.t('Attribute.Carry')}} <input type="number" ng-model="character.carry" /></div>
+		<div class="movement">{{i18n.t('Attribute.Movement')}} <input type="number" ng-model="character.movement" /></div>
 
-		Physical Limit
-		Mental Limit
-		Social Limit
+		<div class="physical-limit">{{i18n.t('Attribute.Physical Limit')}} <input type="number" ng-model="character.physical_limit" /></div>
+		<div class="mental-limit">{{i18n.t('Attribute.Mental Limit')}} <input type="number" ng-model="character.mental_limit" /></div>
+		<div class="social-limit">{{i18n.t('Attribute.Social Limit')}} <input type="number" ng-model="character.social_limit" /></div>
 	</div>
 	<div id="skills">
 		Skillname
