@@ -1,4 +1,110 @@
-angular.module('Shadowrun5thSheet', []);
+var Shadowrun5thSheet = angular.module('Shadowrun5thSheet', []);
+
+Shadowrun5thSheet.factory('metatypeProvider', function() {
+	metatypes = {
+		'human': {
+			'label'     : 'Metatype.Human',
+			'attributes': {
+				'body'     : {'base': 1, 'max': 6},
+				'agility'  : {'base': 1, 'max': 6},
+				'reaction' : {'base': 1, 'max': 6},
+				'strength' : {'base': 1, 'max': 6},
+				'willpower': {'base': 1, 'max': 6},
+				'logic'    : {'base': 1, 'max': 6},
+				'intuition': {'base': 1, 'max': 6},
+				'charisma' : {'base': 1, 'max': 6},
+				'edge'     : {'base': 2, 'max': 7},
+				'essence'  : {'base': 6, 'max': 6}
+			}
+		},
+		'elf'  : {
+			'label'     : 'Metatype.Elf',
+			'attributes': {
+				'body'     : {'base': 1, 'max': 6},
+				'agility'  : {'base': 2, 'max': 7},
+				'reaction' : {'base': 1, 'max': 6},
+				'strength' : {'base': 1, 'max': 6},
+				'willpower': {'base': 1, 'max': 6},
+				'logic'    : {'base': 1, 'max': 6},
+				'intuition': {'base': 1, 'max': 6},
+				'charisma' : {'base': 3, 'max': 8},
+				'edge'     : {'base': 1, 'max': 6},
+				'essence'  : {'base': 6, 'max': 6}
+			},
+			'features': {
+				'vision': [
+					'night'
+				]
+			}
+		},
+		'dwarf': {
+			'label'     : 'Metatype.Dwarf',
+			'attributes': {
+				'body'     : {'base': 3, 'max': 8},
+				'agility'  : {'base': 1, 'max': 6},
+				'reaction' : {'base': 1, 'max': 5},
+				'strength' : {'base': 3, 'max': 8},
+				'willpower': {'base': 2, 'max': 7},
+				'logic'    : {'base': 1, 'max': 6},
+				'intuition': {'base': 1, 'max': 6},
+				'charisma' : {'base': 1, 'max': 6},
+				'edge'     : {'base': 1, 'max': 6},
+				'essence'  : {'base': 6, 'max': 6}
+			},
+			'features': {
+				'vision': [
+					'infrared'
+				]
+			}
+		},
+		'orc'  : {
+			'label'     : 'Metatype.Orc',
+			'attributes': {
+				'body'     : {'base': 4, 'max': 9},
+				'agility'  : {'base': 1, 'max': 6},
+				'reaction' : {'base': 1, 'max': 6},
+				'strength' : {'base': 3, 'max': 8},
+				'willpower': {'base': 1, 'max': 6},
+				'logic'    : {'base': 1, 'max': 5},
+				'intuition': {'base': 1, 'max': 6},
+				'charisma' : {'base': 1, 'max': 5},
+				'edge'     : {'base': 1, 'max': 6},
+				'essence'  : {'base': 6, 'max': 6}
+			},
+			'features': {
+				'vision': [
+					'night'
+				]
+			}
+		},
+		'troll': {
+			'label'     : 'Metatype.Troll',
+			'attributes': {
+				'body'     : {'base': 5, 'max': 10},
+				'agility'  : {'base': 1, 'max': 5},
+				'reaction' : {'base': 1, 'max': 6},
+				'strength' : {'base': 5, 'max': 10},
+				'willpower': {'base': 1, 'max': 6},
+				'logic'    : {'base': 1, 'max': 5},
+				'intuition': {'base': 1, 'max': 5},
+				'charisma' : {'base': 1, 'max': 4},
+				'edge'     : {'base': 1, 'max': 6},
+				'essence'  : {'base': 6, 'max': 6}
+			},
+			'features': {
+				'vision': [
+					'infrared'
+				]
+			}
+		}
+	};
+	return function(metatypeid) {
+		if (typeof metatypes[metatypeid] !== 'undefined') {
+			return metatypes[metatypeid];
+		}
+		return false;
+	};
+});
 
 function Shadowrun5thSheetController($scope)
 {
@@ -13,6 +119,7 @@ function Shadowrun5thSheetController($scope)
 		'weight_unit'     : 'kilogramms',
 		'street_cred'     : 0,
 		'notoriety'       : 0,
+		'public_awareness': 0,
 		'karma'           : 0,
 		'total_karma'     : 0,
 	};
@@ -376,32 +483,4 @@ function Shadowrun5thSheetController($scope)
 	$scope.$watch('character.weight_unit', function(newValue, oldValue) {
 		$scope.character.weight = ($scope.character.weight * $scope.i18n.getUnitFactor('weight', oldValue)) / $scope.i18n.getUnitFactor('weight', newValue);
 	});
-}
-
-function AttributeController($scope) {
-	$scope.todos = [
-		{text:'learn angular', done:true},
-		{text:'build an angular app', done:false}
-	];
-
-	$scope.addTodo = function() {
-		$scope.todos.push({text:$scope.todoText, done:false});
-		$scope.todoText = '';
-	};
-
-	$scope.remaining = function() {
-		var count = 0;
-		angular.forEach($scope.todos, function(todo) {
-			count += todo.done ? 0 : 1;
-		});
-		return count;
-	};
-
-	$scope.archive = function() {
-		var oldTodos = $scope.todos;
-		$scope.todos = [];
-		angular.forEach(oldTodos, function(todo) {
-			if (!todo.done) $scope.todos.push(todo);
-		});
-	};
 }
